@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Before/after slider: base layer = after photo (full), overlay = before photo (clipped from the left) */
+.ba-slider {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+.ba-slider .ba-base,
+.ba-slider .ba-overlay {
+  position: absolute;
+  inset: 0;
+}
+.ba-slider .ba-base img,
+.ba-slider .ba-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ba-slider .ba-overlay {
+  overflow: hidden;
+  clip-path: inset(0 50% 0 0);
+}
+.ba-slider .ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: #C1452A;
+  transform: translateX(-1.5px);
+  pointer-events: none;
+}
+.ba-slider .ba-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: #C1452A;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+.ba-slider .ba-handle::before {
+  content: '⟷';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  z-index: 1;
+  font-size: 16px;
+  font-weight: 700;
+  color: #E7E8E5;
+}
+
+/* Launch splash */
+#splash {
+  transition: opacity 0.5s ease;
+}
+#splash.splash-out {
+  opacity: 0;
+  pointer-events: none;
+}
+#splash .splash-mark {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#splash.splash-in .splash-mark {
+  opacity: 1;
+  transform: translateY(0);
+}
+#splash .splash-bar {
+  width: 0;
+  transition: width 0.7s ease 0.2s;
+}
+#splash.splash-in .splash-bar {
+  width: 140px;
+}
+@media (prefers-reduced-motion: reduce) {
+  #splash, #splash .splash-mark, #splash .splash-bar {
+    transition: none !important;
+  }
+}
+
+/* Subtle nav shadow on scroll */
+#site-nav.scrolled {
+  box-shadow: 0 1px 0 rgba(17,20,23,0.14);
+  background-color: rgba(231,232,229,0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* ================= TEXTURES ================= */
+/* Crisp blueprint grid — bold, technical, masculine. Light sections. */
+.bg-texture-light {
+  background-image:
+    linear-gradient(to right, rgba(17,20,23,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17,20,23,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+/* Blueprint grid on dark sections. */
+.bg-texture-dark {
+  background-image:
+    linear-gradient(to right, rgba(231,232,229,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231,232,229,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Heavier grid + fine grid combo for hero / feature panels */
+.bg-blueprint {
+  background-color: #111417;
+  background-image:
+    linear-gradient(to right, rgba(231,232,229,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231,232,229,0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(231,232,229,0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231,232,229,0.035) 1px, transparent 1px);
+  background-size: 128px 128px, 128px 128px, 32px 32px, 32px 32px;
+}
+
+/* Diagonal hazard stripes — accent bands / dividers */
+.stripe-accent {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #C1452A 0, #C1452A 12px,
+    #111417 12px, #111417 24px
+  );
+}
+
+/* Photo duotone — unifies hero/background photos into the steel/ink brand */
+.photo-duotone img {
+  filter: grayscale(0.55) contrast(1.08) brightness(0.82);
+}
+
+/* Section eyebrow with tick mark */
+.eyebrow-tick::before {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  vertical-align: middle;
+  margin-right: 10px;
+  opacity: 0.8;
+}
+
+/* Language toggle */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid rgba(17,20,23,0.2);
+  overflow: hidden;
+}
+.lang-toggle button {
+  padding: 0.3rem 0.65rem;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(17,20,23,0.55);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.lang-toggle button[aria-pressed="true"] {
+  background-color: #111417;
+  color: #E7E8E5;
+}
+.lang-toggle.on-dark {
+  border-color: rgba(231,232,229,0.3);
+}
+.lang-toggle.on-dark button {
+  color: rgba(231,232,229,0.6);
+}
+.lang-toggle.on-dark button[aria-pressed="true"] {
+  background-color: #E7E8E5;
+  color: #111417;
+}
+
+/* Form fields */
+.field {
+  width: 100%;
+  background-color: #111417;
+  border: 1px solid rgba(231,232,229,0.16);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  color: #E7E8E5;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+.field::placeholder { color: rgba(231,232,229,0.4); }
+.field:focus {
+  outline: none;
+  border-color: #C1452A;
+}
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(231,232,229,0.6);
+  margin-bottom: 0.4rem;
+}
