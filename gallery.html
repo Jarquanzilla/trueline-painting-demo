@@ -4,31 +4,163 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gallery | Trueline Painting Co.</title>
+<meta name="description" content="Recent exterior, brick, interior, and commercial painting projects from Trueline Painting Co. in Cedar Valley. Free estimates — call (555) 010-0000." />
+<link rel="canonical" href="https://www.truelinepainting.example/gallery.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-linen text-ink antialiased min-h-screen flex flex-col">
-<header class="px-6 lg:px-10 h-20 flex items-center justify-between border-b border-ink/10">
-  <a href="index.html" class="font-display text-lg text-ink">Trueline <span class="text-rust">Painting</span></a>
-  <div class="flex items-center gap-4">
-    <div class="lang-toggle">
-      <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+<body class="bg-linen text-ink antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-ink focus:text-linen focus:px-4 focus:py-2 focus:rounded-lg focus:z-50">Skip to content</a>
+
+<header id="site-nav" class="fixed top-0 inset-x-0 z-40 bg-linen/80 backdrop-blur-md transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="font-display text-lg md:text-xl tracking-tight text-ink">Trueline <span class="text-rust">Painting</span></a>
+      <nav class="hidden lg:flex items-center gap-7 text-[15px] font-medium text-ink/80">
+        <a href="services.html" class="hover:text-ink transition-colors" data-en="Services" data-es="Servicios">Services</a>
+        <a href="gallery.html" class="text-ink" data-en="Gallery" data-es="Galería">Gallery</a>
+        <a href="about.html" class="hover:text-ink transition-colors" data-en="About" data-es="Nosotros">About</a>
+        <a href="reviews.html" class="hover:text-ink transition-colors" data-en="Reviews" data-es="Reseñas">Reviews</a>
+        <a href="service-areas.html" class="hover:text-ink transition-colors" data-en="Service Area" data-es="Área de Servicio">Service Area</a>
+        <a href="contact.html" class="hover:text-ink transition-colors" data-en="Contact" data-es="Contacto">Contact</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-4">
+        <div class="lang-toggle">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <a href="tel:15550100000" class="text-[15px] font-semibold text-ink hover:text-rust transition-colors">(555) 010-0000</a>
+        <a href="contact.html" class="inline-flex items-center rounded-md bg-ink text-linen text-[15px] font-semibold px-5 py-2.5 hover:bg-steel transition-colors" data-en="Get a Free Estimate" data-es="Presupuesto Gratis">Get a Free Estimate</a>
+      </div>
+      <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-2 -mr-2 text-ink" aria-label="Toggle menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
     </div>
-    <a href="tel:15550100000" class="text-sm font-semibold text-ink hover:text-rust">(555) 010-0000</a>
+    <div id="mobile-menu" class="hidden lg:hidden flex-col gap-1 pb-6 text-ink">
+      <a href="services.html" class="py-2.5 border-b border-ink/10" data-en="Services" data-es="Servicios">Services</a>
+      <a href="gallery.html" class="py-2.5 border-b border-ink/10" data-en="Gallery" data-es="Galería">Gallery</a>
+      <a href="about.html" class="py-2.5 border-b border-ink/10" data-en="About" data-es="Nosotros">About</a>
+      <a href="reviews.html" class="py-2.5 border-b border-ink/10" data-en="Reviews" data-es="Reseñas">Reviews</a>
+      <a href="service-areas.html" class="py-2.5 border-b border-ink/10" data-en="Service Area" data-es="Área de Servicio">Service Area</a>
+      <a href="contact.html" class="py-2.5 border-b border-ink/10" data-en="Contact" data-es="Contacto">Contact</a>
+      <div class="pt-4 flex items-center justify-between">
+        <a href="tel:15550100000" class="font-semibold text-rustdark">Call (555) 010-0000</a>
+        <div class="lang-toggle">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
-<main class="flex-1 flex items-center justify-center px-6 py-24 text-center">
-  <div>
-    <p class="text-sm font-semibold tracking-wide text-rustdark uppercase" data-en="Gallery" data-es="Galería">Gallery</p>
-    <h1 class="font-display text-3xl md:text-5xl mt-3 text-ink" data-en="This page is coming soon" data-es="Esta página estará lista pronto">This page is coming soon</h1>
-    <p class="mt-5 text-stone max-w-md mx-auto" data-en="In the meantime, call us directly or head back to the homepage to get a free estimate." data-es="Mientras tanto, llámanos directamente o regresa al inicio para pedir un presupuesto gratis.">In the meantime, call us directly or head back to the homepage to get a free estimate.</p>
-    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="index.html" class="inline-flex justify-center items-center rounded-md bg-ink text-linen font-semibold px-7 py-3.5 hover:bg-steel transition-colors" data-en="Back to Home" data-es="Volver al Inicio">Back to Home</a>
-      <a href="tel:15550100000" class="inline-flex justify-center items-center rounded-md border border-ink/15 text-ink font-semibold px-7 py-3.5 hover:border-ink/30 transition-colors" data-en="Call (555) 010-0000" data-es="Llama (555) 010-0000">Call (555) 010-0000</a>
+
+<main id="main">
+  <section class="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-blueprint text-linen overflow-hidden">
+    <div class="absolute inset-x-0 top-0 h-1 stripe-accent"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 max-w-2xl">
+      <p class="text-sm font-semibold tracking-wide text-rust uppercase eyebrow-tick" data-en="Our work" data-es="Nuestro trabajo">Our work</p>
+      <h1 class="font-display text-4xl md:text-6xl leading-[1.05] mt-4 text-linen" data-en="Recent projects around Cedar Valley" data-es="Proyectos recientes en Cedar Valley">Recent projects around Cedar Valley</h1>
+      <p class="mt-6 text-lg text-linen/75 leading-relaxed" data-en="A look at exterior, brick, interior, and commercial work. New photos are added as jobs are completed." data-es="Un vistazo a trabajo de exteriores, ladrillo, interiores y comercial. Agregamos fotos nuevas al completar trabajos.">A look at exterior, brick, interior, and commercial work. New photos are added as jobs are completed.</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-texture-light">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/exterior-craftsman.png" alt="Craftsman home exterior repaint" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="Craftsman exterior — siding &amp; trim" data-es="Exterior estilo Craftsman — siding y molduras">Craftsman exterior — siding &amp; trim</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/exterior-blue-brick.png" alt="Painted brick home" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="Brick refresh — breathable masonry coating" data-es="Renovación de ladrillo — recubrimiento transpirable">Brick refresh — breathable masonry coating</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/interior-great-room.png" alt="Interior great room repaint" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="Interior — great room &amp; trim" data-es="Interior — sala principal y molduras">Interior — great room &amp; trim</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/kitchen-cabinets.png" alt="Repainted kitchen cabinets" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="Kitchen cabinets — sprayed finish" data-es="Gabinetes de cocina — acabado rociado">Kitchen cabinets — sprayed finish</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/masonry-storefront.png" alt="Commercial masonry storefront" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="Storefront — commercial masonry" data-es="Local comercial — mampostería">Storefront — commercial masonry</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/garage-gable.png" alt="Garage and gable exterior" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="Garage &amp; gable — exterior detail" data-es="Garaje y frontón — detalle exterior">Garage &amp; gable — exterior detail</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/metal-building.png" alt="Metal commercial building" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="Metal building — commercial coating" data-es="Edificio metálico — recubrimiento comercial">Metal building — commercial coating</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/new-construction.png" alt="New construction interior" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="New construction — full interior" data-es="Construcción nueva — interior completo">New construction — full interior</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden border border-ink/8 group">
+        <img src="images/roofing.png" alt="Exterior and roofline detail" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <figcaption class="p-4 text-sm text-stone bg-inklight/70" data-en="Roofline &amp; fascia — exterior detail" data-es="Línea de techo y fascia — detalle exterior">Roofline &amp; fascia — exterior detail</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="relative py-16 md:py-24 bg-blueprint text-linen overflow-hidden">
+    <div class="absolute inset-x-0 top-0 h-1 stripe-accent"></div>
+    <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+      <h2 class="font-display text-3xl md:text-5xl leading-tight" data-en="Picture your project like this" data-es="Imagina tu proyecto así">Picture your project like this</h2>
+      <p class="mt-5 text-linen/75 text-lg max-w-xl mx-auto" data-en="Get a free, written estimate and we'll help you get there." data-es="Obtén un presupuesto gratis por escrito y te ayudamos a lograrlo.">Get a free, written estimate and we'll help you get there.</p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="inline-flex justify-center items-center rounded-md bg-rust text-linen font-semibold px-8 py-4 hover:bg-rustdark transition-colors" data-en="Get Your Free Estimate" data-es="Obtén tu Presupuesto Gratis">Get Your Free Estimate</a>
+        <a href="tel:15550100000" class="inline-flex justify-center items-center rounded-md border border-linen/30 text-linen font-semibold px-8 py-4 hover:border-linen/60 transition-colors">Call (555) 010-0000</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-ink text-linen/70 pt-16 pb-10 bg-texture-dark">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div>
+      <p class="font-display text-lg text-linen">Trueline <span class="text-rust">Painting</span></p>
+      <p class="mt-4 text-sm leading-relaxed max-w-xs" data-en="Exterior, brick, and interior painting for Cedar Valley homes and businesses. Licensed, insured, and locally owned." data-es="Pintura de exteriores, ladrillo e interiores para casas y negocios de Cedar Valley. Con licencia, asegurados y de propiedad local.">Exterior, brick, and interior painting for Cedar Valley homes and businesses. Licensed, insured, and locally owned.</p>
+    </div>
+    <div>
+      <p class="text-linen font-semibold text-sm mb-4" data-en="Services" data-es="Servicios">Services</p>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="services.html" class="hover:text-linen transition-colors" data-en="Exterior Painting" data-es="Pintura de Exteriores">Exterior Painting</a></li>
+        <li><a href="services.html" class="hover:text-linen transition-colors" data-en="Brick &amp; Masonry" data-es="Ladrillo y Mampostería">Brick &amp; Masonry</a></li>
+        <li><a href="services.html" class="hover:text-linen transition-colors" data-en="Interior Painting" data-es="Pintura de Interiores">Interior Painting</a></li>
+        <li><a href="services.html" class="hover:text-linen transition-colors" data-en="Drywall Repair" data-es="Reparación de Drywall">Drywall Repair</a></li>
+        <li><a href="services.html" class="hover:text-linen transition-colors" data-en="Commercial Painting" data-es="Pintura Comercial">Commercial Painting</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-linen font-semibold text-sm mb-4" data-en="Company" data-es="Compañía">Company</p>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="about.html" class="hover:text-linen transition-colors" data-en="About" data-es="Nosotros">About</a></li>
+        <li><a href="gallery.html" class="hover:text-linen transition-colors" data-en="Gallery" data-es="Galería">Gallery</a></li>
+        <li><a href="reviews.html" class="hover:text-linen transition-colors" data-en="Reviews" data-es="Reseñas">Reviews</a></li>
+        <li><a href="service-areas.html" class="hover:text-linen transition-colors" data-en="Service Area" data-es="Área de Servicio">Service Area</a></li>
+        <li><a href="contact.html" class="hover:text-linen transition-colors" data-en="Contact" data-es="Contacto">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-linen font-semibold text-sm mb-4" data-en="Get in touch" data-es="Contáctanos">Get in touch</p>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="tel:15550100000" class="hover:text-linen transition-colors">(555) 010-0000</a></li>
+        <li>123 Main St, Cedar Valley, ST 00000</li>
+        <li data-en="Mon–Sat, 7am–6pm" data-es="Lun–Sáb, 7am–6pm">Mon–Sat, 7am–6pm</li>
+      </ul>
     </div>
   </div>
-</main>
-<footer class="text-center text-xs text-stone py-8">&copy; <span id="year"></span> Trueline Painting Co.. All rights reserved.</footer>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 mt-16 pt-8 border-t border-linen/10 flex flex-col sm:flex-row justify-between gap-4 text-xs text-linen/50">
+    <p>&copy; <span id="year"></span> <span data-en="Trueline Painting Co.. All rights reserved." data-es="Trueline Painting Co.. Todos los derechos reservados.">Trueline Painting Co.. All rights reserved.</span></p>
+    <p data-en="Cedar Valley &middot; Licensed &amp; Insured" data-es="Cedar Valley &middot; Con Licencia y Asegurados">Cedar Valley &middot; Licensed &amp; Insured</p>
+  </div>
+</footer>
+
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
