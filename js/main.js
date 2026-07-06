@@ -133,10 +133,11 @@ document.querySelectorAll('.lang-btn').forEach((btn) => {
   btn.addEventListener('click', () => applyLang(btn.dataset.lang));
 });
 
-// Contact form → compose an email to the business inbox
+// Contact form → relay to the Novallem inbox via the shared Cloudflare Worker
+const CONTACT_RELAY_URL = 'https://novallem-contact-relay.nealechristian4.workers.dev';
 const estimateForm = document.getElementById('estimate-form');
 if (estimateForm) {
-  estimateForm.addEventListener('submit', (e) => {
+  estimateForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(estimateForm);
     const name = (data.get('name') || '').toString().trim();
@@ -145,20 +146,33 @@ if (estimateForm) {
     const service = (data.get('service') || '').toString().trim();
     const message = (data.get('message') || '').toString().trim();
 
-    const subject = `Free Estimate Request — ${name || 'New lead'}`;
-    const body = [
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Email: ${email || '(not provided)'}`,
-      `Service: ${service}`,
-      '',
-      'Project details:',
-      message || '(none)',
-      '',
-      '— Sent from truelinepainting.example',
-    ].join('\n');
+    const note = document.getElementById('form-note');
+    const button = estimateForm.querySelector('button[type="submit"]');
+    if (button) button.disabled = true;
+    if (note) { note.textContent = 'Sending…'; note.className = 'text-xs text-linen/50 text-center'; }
 
-    const mailto = `mailto:hello@truelinepainting.example?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    try {
+      const res = await fetch(CONTACT_RELAY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          site: 'trueline',
+          name,
+          email,
+          business: service,
+          message: `Phone: ${phone || '—'}\nService: ${service}\n\n${message || 'No additional details.'}`,
+        }),
+      });
+      if (res.ok) {
+        estimateForm.innerHTML =
+          '<div class="text-center py-8"><p class="font-display text-xl text-linen mb-2">Estimate request sent</p>' +
+          '<p class="text-sm text-linen/60">Thanks — we\'ll be in touch shortly about your free estimate.</p></div>';
+      } else {
+        throw new Error('relay error');
+      }
+    } catch {
+      if (button) button.disabled = false;
+      if (note) { note.textContent = 'Something went wrong — please call (555) 010-0000 or try again.'; note.className = 'text-xs text-red-400 text-center'; }
+    }
   });
 }
